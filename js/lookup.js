@@ -1,10 +1,7 @@
-$(document).ready(function() {
-    $('#lookup-form').submit(function(event) {
-        event.preventDefault();
-        var goal = $('#goal').val();
-        var output = lookUp(goal);
-        output.forEach(function(element) {
-            $('#solution').append("<li>" + element + "</li>");
-        });
+exports.getRepos = function() {
+    $.get('https://api.github.com/users/kahu08?access_token=' + apiKey).then(function(response) {
+        console.log(response);
+    }).fail(function(error) {
+        console.log(error.responseJSON.message);
     });
-});
+};

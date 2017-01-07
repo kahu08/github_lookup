@@ -72,7 +72,7 @@ gulp.task('cssBower', function() {
 gulp.task('bower', ['jsBower', 'cssBower']);
 
 //cleaning up temp files
-gulp.task('clean'function() {
+gulp.task('clean', function() {
     return del(['build', 'tmp']);
 });
 
@@ -84,7 +84,7 @@ gulp.task('build', ['clean'], function() {
         gulp.start('jsBrowserify');
     }
     gulp.start('bower');
-    gulp.start('cssBuild');
+    // gulp.start('cssBuild');
 });
 
 //making a server
@@ -100,7 +100,7 @@ gulp.task('serve', function() {
     gulp.watch(['js/*.js'], ['jsBuild']);
     gulp.watch(['bower.json'], ['bowerBuild']);
     gulp.watch(['*.html'], ['htmlBuild']);
-    gulp.watch("scss/*.scss", ['cssBuild']);
+    // gulp.watch("scss/*.scss", ['cssBuild']);
 });
 
 //execute when any changes occur and reload the page
